@@ -1,7 +1,8 @@
 "use client";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ShoppingBag, ShieldCheck, Smartphone } from "lucide-react";
+import { Menu, ShoppingBag, ShieldCheck, Smartphone, X } from "lucide-react";
 import { Logo } from "./Logo";
 import { useCart } from "@/store/cart-store";
 import { useMounted } from "@/store/persist";
@@ -17,11 +18,12 @@ const NAV = [
 export function Header() {
   const path = usePathname();
   const mounted = useMounted();
+  const [menu, setMenu] = useState(false);
   const count = useCart((s) => s.lines.reduce((a, b) => a + b.qty, 0));
   const setOpen = useCart((s) => s.setOpen);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-bg/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 border-b border-line bg-bg/85 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center gap-6 px-4 md:px-6">
         <Logo />
         <nav className="ml-6 hidden items-center gap-1 lg:flex">
@@ -29,10 +31,7 @@ export function Header() {
             <Link
               key={n.href}
               href={n.href}
-              className={cx(
-                "flex items-center gap-1.5 rounded-lg px-3 py-2 text-small transition",
-                path.startsWith(n.href) ? "text-gold-hi" : "text-ink-2 hover:text-ink",
-              )}
+              className={cx("flex items-center gap-1.5 rounded-lg px-3 py-2 text-small transition", path.startsWith(n.href) ? "text-gold-hi" : "text-ink-2 hover:text-ink")}
             >
               {n.icon && <n.icon className="size-3.5" />}
               {n.label}
@@ -47,20 +46,29 @@ export function Header() {
           >
             <ShoppingBag className="size-4.5" />
             {mounted && count > 0 && (
-              <span className="num absolute -top-1.5 -right-1.5 grid min-w-5 place-items-center rounded-full bg-gold px-1 text-caption font-bold text-bg">
-                {count}
-              </span>
+              <span className="num absolute -top-1.5 -right-1.5 grid min-w-5 place-items-center rounded-full bg-gold px-1 text-caption font-bold text-bg">{count}</span>
             )}
+          </button>
+          <button onClick={() => setMenu((m) => !m)} className="grid size-10 place-items-center rounded-xl border border-line text-ink-2 lg:hidden" aria-label="Menü">
+            {menu ? <X className="size-4.5" /> : <Menu className="size-4.5" />}
           </button>
         </div>
       </div>
-      <nav className="no-scrollbar flex gap-1 overflow-x-auto border-t border-line px-3 py-1.5 lg:hidden">
-        {NAV.map((n) => (
-          <Link key={n.href} href={n.href} className={cx("shrink-0 rounded-lg px-3 py-1.5 text-small", path.startsWith(n.href) ? "bg-surface-2 text-gold-hi" : "text-ink-2")}>
-            {n.label}
-          </Link>
-        ))}
-      </nav>
+      {menu && (
+        <nav className="border-t border-line px-4 py-3 lg:hidden">
+          {NAV.map((n) => (
+            <Link
+              key={n.href}
+              href={n.href}
+              onClick={() => setMenu(false)}
+              className={cx("flex items-center gap-3 rounded-xl px-3 py-3 text-body", path.startsWith(n.href) ? "bg-surface-2 text-gold-hi" : "text-ink-2")}
+            >
+              {n.icon ? <n.icon className="size-4 text-gold" /> : <span className="size-4" />}
+              {n.label}
+            </Link>
+          ))}
+        </nav>
+      )}
     </header>
   );
 }

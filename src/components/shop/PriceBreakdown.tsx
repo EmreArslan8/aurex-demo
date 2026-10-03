@@ -16,8 +16,8 @@ export function PriceBreakdown({ p }: { p: Product }) {
 
   const rows = [
     { label: `${meta.label} kuru × ${fmtNum(p.amount)} ${unit}`, hint: q ? `${fmtNum(q.sell)} ₺ / ${unit}` : "", value: price?.metal },
-    { label: "Üretim / işçilik primi", hint: `%${fmtNum(p.premium * 100)}`, value: price?.premium },
-    { label: "Aurex marjı", hint: `%${fmtNum(cfg.margin[p.category] * 100)}`, value: price?.margin },
+    { label: "Darp & işçilik", hint: `%${fmtNum(p.premium * 100)}`, value: price?.premium },
+    { label: "Hizmet bedeli", hint: `%${fmtNum(cfg.margin[p.category] * 100)}`, value: price?.margin },
     { label: "KDV", hint: cfg.vat[p.category] === 0 ? "Yatırımlık altın — istisna" : `%${fmtNum(cfg.vat[p.category] * 100)}`, value: price?.vat },
   ];
 
@@ -40,7 +40,7 @@ export function PriceBreakdown({ p }: { p: Product }) {
           <Price value={price?.total} className="text-price text-gold-hi" />
         </div>
         <div className="flex items-center justify-between text-small">
-          <span className="text-muted">Aurex geri alım (bozdurma)</span>
+          <span className="text-muted">Bugün geri satarsanız</span>
           <Price value={price?.buyback} className="text-ink-2" />
         </div>
       </div>

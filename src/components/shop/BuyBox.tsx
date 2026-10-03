@@ -38,7 +38,7 @@ export function BuyBox({ p }: { p: Product }) {
         <li className="flex items-center gap-2"><Lock className="size-4 text-gold" /> 3D Secure ile ödeme</li>
         <li className="flex items-center gap-2"><Truck className="size-4 text-gold" /> Değer bazlı sigortalı kargo</li>
         <li className="flex items-center gap-2"><QrCode className="size-4 text-gold" /> QR kodlu sertifika</li>
-        <li className="flex items-center gap-2"><ShieldCheck className="size-4 text-gold" /> Stok: <span className="num">{p.stock}</span> adet · Lot {p.lot}</li>
+        <li className="flex items-center gap-2"><ShieldCheck className="size-4 text-gold" /> <span>Stokta <span className="num">{p.stock}</span> adet, hemen kargoda</span></li>
       </ul>
     </div>
   );

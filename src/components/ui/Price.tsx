@@ -21,7 +21,7 @@ export function Price({ value, className, plain }: { value: number | null | unde
   return (
     <span
       key={key}
-      className={cx("num", flash === "up" && "animate-flash-up", flash === "down" && "animate-flash-down", className)}
+      className={cx("num -mx-1 rounded px-1", flash === "up" && "animate-flash-up", flash === "down" && "animate-flash-down", className)}
     >
       {plain ? fmtNum(value) : fmtTL(value)}
     </span>

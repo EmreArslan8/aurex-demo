@@ -26,7 +26,7 @@ export default async function ProductPage({ params }: PageProps<"/urun/[slug]">)
     ["Ağırlık", p.weightLabel],
     ["Saflık", p.purity],
     ["Üretici", p.refinery],
-    ["Lot numarası", p.lot],
+    ["Teslimat", "1–2 iş günü, sigortalı"],
     ["Sertifika", "QR kodlu, seri numaralı"],
     ["Ambalaj", "Mühürlü, kurcalanmaya dayanıklı"],
   ];

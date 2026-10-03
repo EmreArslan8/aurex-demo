@@ -15,17 +15,17 @@ export function FormulaShowcase() {
     { label: "KDV", value: price?.vat, note: "yatırımlık altında yok" },
   ];
   return (
-    <div className="grid items-center gap-4 md:grid-cols-[repeat(4,1fr)_auto_1.2fr]">
+    <div className="grid grid-cols-2 items-center gap-3 md:grid-cols-[repeat(4,1fr)_auto_1.2fr] md:gap-4">
       {parts.map((x, i) => (
         <div key={x.label} className="relative rounded-card border border-line bg-surface p-4">
           {i > 0 && <span className="absolute top-1/2 -left-3.5 hidden -translate-y-1/2 text-muted md:block">+</span>}
           <p className="text-caption uppercase text-muted">{x.label}</p>
-          <Price value={x.value} className="mt-1 block text-h3" />
+          <Price value={x.value} className="mt-1 block text-body font-semibold whitespace-nowrap md:text-h3" />
           <p className="text-caption text-muted">{x.note}</p>
         </div>
       ))}
       <span className="hidden text-h2 text-gold md:block">=</span>
-      <div className="rounded-card border border-gold/40 bg-gradient-to-br from-gold/15 to-transparent p-4">
+      <div className="col-span-2 rounded-card border border-gold/40 md:col-span-1 bg-gradient-to-br from-gold/15 to-transparent p-4">
         <p className="text-caption uppercase text-gold">10 gr külçe altın</p>
         <Price value={price?.total} className="mt-1 block text-price-lg" />
         <p className="text-caption text-muted">Şu an ödeyeceğiniz tutar</p>

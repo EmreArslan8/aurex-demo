@@ -34,7 +34,7 @@ export default function Home() {
       <section className="relative overflow-hidden border-b border-line">
         <Image src="/stock/vault-bars.webp" alt="" fill priority sizes="100vw" className="object-cover opacity-[0.16]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,transparent,var(--color-bg)_70%)]" />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 md:px-6 lg:grid-cols-[1.1fr_1fr] lg:py-24">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-10 md:px-6 md:py-16 lg:grid-cols-[1.1fr_1fr] lg:py-24">
           <div className="space-y-7">
             <Eyebrow>Güncel piyasa fiyatıyla</Eyebrow>
             <h1 className="font-display text-display">
@@ -54,9 +54,9 @@ export default function Home() {
 
       {/* GÜVENCE */}
       <section className="border-b border-line bg-surface">
-        <div className="no-scrollbar mx-auto flex max-w-7xl justify-between gap-8 overflow-x-auto px-4 py-5 md:px-6">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-4 gap-y-3 px-4 py-5 md:flex md:justify-between md:px-6">
           {TRUST.map((t) => (
-            <span key={t.label} className="flex shrink-0 items-center gap-2.5 text-small text-ink-2">
+            <span key={t.label} className="flex items-center gap-2.5 text-small text-ink-2">
               <t.icon className="size-4 text-gold" /> {t.label}
             </span>
           ))}
@@ -64,13 +64,13 @@ export default function Home() {
       </section>
 
       {/* ÜRÜNLER */}
-      <section className="mx-auto max-w-7xl px-4 pt-20 md:px-6">
+      <section className="mx-auto max-w-7xl px-4 pt-14 md:px-6 md:pt-20">
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
             <Eyebrow>Çok tercih edilenler</Eyebrow>
             <h2 className="mt-2 font-display text-h1">Yatırımlık altın & gümüş</h2>
           </div>
-          <LinkButton href="/urunler" variant="ghost">Tümünü gör <ArrowRight className="size-4" /></LinkButton>
+          <LinkButton href="/urunler" variant="ghost" className="hidden shrink-0 sm:inline-flex">Tümünü gör <ArrowRight className="size-4" /></LinkButton>
         </div>
         <div className="grid grid-cols-2 gap-3 md:gap-5 lg:grid-cols-4">
           {featured.map((p) => <ProductCard key={p.id} p={p} />)}
@@ -78,7 +78,7 @@ export default function Home() {
       </section>
 
       {/* NASIL ÇALIŞIR */}
-      <section className="mx-auto max-w-7xl px-4 pt-24 md:px-6">
+      <section className="mx-auto max-w-7xl px-4 pt-16 md:px-6 md:pt-24">
         <Eyebrow>4 adımda</Eyebrow>
         <h2 className="mt-2 mb-8 font-display text-h1">Altın almak hiç bu kadar kolay olmamıştı</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -96,7 +96,7 @@ export default function Home() {
       </section>
 
       {/* ŞEFFAF FİYAT */}
-      <section className="mx-auto max-w-7xl px-4 pt-24 md:px-6">
+      <section className="mx-auto max-w-7xl px-4 pt-16 md:px-6 md:pt-24">
         <div className="mb-8 max-w-2xl">
           <Eyebrow>Şeffaf fiyat</Eyebrow>
           <h2 className="mt-2 font-display text-h1">Ödediğiniz her kuruşun dökümü önünüzde.</h2>
@@ -106,8 +106,8 @@ export default function Home() {
       </section>
 
       {/* ORİJİNALLİK + UYGULAMA */}
-      <section className="mx-auto grid max-w-7xl gap-5 px-4 pt-24 md:px-6 lg:grid-cols-2">
-        <div className="relative overflow-hidden rounded-[1.5rem] border border-line bg-surface p-8">
+      <section className="mx-auto grid max-w-7xl gap-5 px-4 pt-16 md:px-6 md:pt-24 lg:grid-cols-2">
+        <div className="relative overflow-hidden rounded-[1.5rem] border border-line bg-surface p-6 md:p-8">
           <Image src="/stock/bar-hand.webp" alt="" fill sizes="50vw" className="object-cover opacity-20" />
           <div className="relative flex h-full flex-col gap-4">
             <ShieldCheck className="size-7 text-gold" />
@@ -116,7 +116,7 @@ export default function Home() {
             <LinkButton href="/dogrula" variant="outline" className="mt-auto self-start"><QrCode className="size-4" /> Sertifika Sorgula</LinkButton>
           </div>
         </div>
-        <div className="flex flex-col gap-4 rounded-[1.5rem] border border-line bg-gradient-to-br from-surface-2 to-surface p-8">
+        <div className="flex flex-col gap-4 rounded-[1.5rem] border border-line bg-gradient-to-br from-surface-2 to-surface p-6 md:p-8">
           <Bell className="size-7 text-gold" />
           <h3 className="font-display text-h1">Piyasa cebinizde.</h3>
           <p className="max-w-md text-ink-2">Aurex uygulamasıyla canlı fiyatları takip edin, portföyünüzün güncel değerini ve kâr/zararınızı görün, hedef fiyata gelince bildirim alın.</p>
@@ -125,7 +125,7 @@ export default function Home() {
       </section>
 
       {/* SSS */}
-      <section className="mx-auto grid max-w-7xl gap-10 px-4 pt-24 md:px-6 lg:grid-cols-[1fr_1.6fr]">
+      <section className="mx-auto grid max-w-7xl gap-10 px-4 pt-16 md:px-6 md:pt-24 lg:grid-cols-[1fr_1.6fr]">
         <div>
           <Eyebrow>Sıkça sorulanlar</Eyebrow>
           <h2 className="mt-2 font-display text-h1">Aklınıza takılanlar</h2>
