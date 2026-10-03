@@ -11,7 +11,7 @@ const FEATURES = [
   { icon: CandlestickChart, t: "Canlı piyasa & grafikler", d: "Altın, gümüş ve döviz fiyatlarını anlık izleyin; 1 günden 1 yıla grafikler." },
   { icon: Wallet, t: "Portföyüm", d: "Aldığınız her ürün otomatik eklenir; toplam değer ve kâr/zarar canlı hesaplanır." },
   { icon: Bell, t: "Fiyat alarmı", d: "Hedef fiyatı belirleyin, piyasa oraya geldiğinde anında bildirim alın." },
-  { icon: ShieldCheck, t: "Sertifikalarım", d: "Tüm ürünlerinizin seri numarası ve sertifikası tek yerde." },
+  { icon: ShieldCheck, t: "QR ile doğrulama", d: "Sertifikadaki QR kodu okutun, ürününüzün orijinalliğini anında görün." },
 ];
 
 export default function MobilePage() {

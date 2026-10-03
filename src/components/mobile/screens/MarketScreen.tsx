@@ -26,12 +26,17 @@ function Row({ k, onOpen }: { k: QuoteKey; onOpen: (k: QuoteKey) => void }) {
   );
 }
 
+const greeting = () => {
+  const h = new Date().getHours();
+  return h < 6 ? "İyi geceler," : h < 12 ? "Günaydın," : h < 18 ? "İyi günler," : "İyi akşamlar,";
+};
+
 export function MarketScreen({ onOpen }: { onOpen: (k: QuoteKey) => void }) {
   const pf = usePortfolio();
   return (
     <div>
       <div className="px-4 pt-2 pb-4">
-        <p className="text-small text-muted">İyi akşamlar,</p>
+        <p className="text-small text-muted">{greeting()}</p>
         <p className="text-h3">Demo Kullanıcı</p>
         <div className="mt-3 rounded-2xl bg-gradient-to-br from-gold/25 via-gold/10 to-transparent p-4 ring-1 ring-gold/30">
           <p className="text-caption uppercase text-gold-hi">Portföy değeri</p>

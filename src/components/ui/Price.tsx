@@ -32,7 +32,7 @@ export function Change({ value, className }: { value: number | null | undefined;
   if (value == null) return null;
   const up = value >= 0;
   return (
-    <span className={cx("num text-small", up ? "text-up" : "text-down", className)}>
+    <span className={cx("num text-small whitespace-nowrap", up ? "text-up" : "text-down", className)}>
       {up ? "▲" : "▼"} %{Math.abs(value).toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
     </span>
   );

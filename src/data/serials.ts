@@ -31,7 +31,7 @@ function generate(): SerialRecord[] {
       const seq = 100 + pi * 37 + i * 3;
       const day = 1 + Math.floor(rnd() * 25);
       const roll = rnd();
-      const status: SerialStatus = roll < 0.55 ? "satildi" : roll < 0.95 ? "stokta" : "bildirimli";
+      const status: SerialStatus = roll < 0.55 ? "satildi" : "stokta";
       const sold = status !== "stokta";
       out.push({
         serial: makeSerial(p, seq),

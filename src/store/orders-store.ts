@@ -24,6 +24,7 @@ export interface Order {
 interface OrdersState {
   orders: Order[];
   add: (o: Order) => void;
+  setInvoice: (no: string, status: Order["eInvoice"]) => void;
   nextSeq: number;
   takeSeq: (n: number) => number;
 }
@@ -35,6 +36,7 @@ export const useOrders = create<OrdersState>()(
       orders: [],
       nextSeq: 70000,
       add: (o) => set((s) => ({ orders: [o, ...s.orders] })),
+      setInvoice: (no, eInvoice) => set((s) => ({ orders: s.orders.map((o) => (o.no === no ? { ...o, eInvoice } : o)) })),
       takeSeq: (n) => {
         const start = get().nextSeq;
         set({ nextSeq: start + n });
