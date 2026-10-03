@@ -5,6 +5,7 @@ import { Minus, Plus, ShieldCheck, Trash2, X } from "lucide-react";
 import { useCart } from "@/store/cart-store";
 import { useCartSummary } from "@/store/hooks";
 import { useMounted } from "@/store/persist";
+import { usePricing } from "@/store/pricing-store";
 import { Price } from "@/components/ui/Price";
 import { btn } from "@/components/ui/Button";
 import { cx } from "@/lib/format";
@@ -15,6 +16,7 @@ export function CartDrawer() {
   const setOpen = useCart((s) => s.setOpen);
   const { setQty, remove } = useCart.getState();
   const sum = useCartSummary();
+  const lockSec = usePricing((s) => s.config.priceLockSeconds);
   if (!mounted) return null;
 
   return (
@@ -71,8 +73,7 @@ export function CartDrawer() {
               <Price value={sum.ready ? sum.subtotal : null} className="text-price" />
             </div>
             <p className="flex items-center gap-2 text-small text-muted">
-              <ShieldCheck className="size-4 text-gold" /> Fiyat, ödeme adımında {""}
-              <span className="text-ink-2">90 sn sabitlenir</span>.
+              <ShieldCheck className="size-4 text-gold" /> Fiyatınız ödeme adımında <span className="text-ink-2">{lockSec} sn sabitlenir</span>.
             </p>
             <Link href="/odeme" onClick={() => setOpen(false)} className={btn("gold", "lg", "w-full")}>
               Güvenli Ödemeye Geç

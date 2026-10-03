@@ -60,7 +60,7 @@ export const DEMO_SERIALS = {
   valid: SERIALS.find((s) => s.status === "satildi" && s.productId === "p04")!.serial,
   stock: SERIALS.find((s) => s.status === "stokta" && s.productId === "p08")!.serial,
   flagged: SERIALS.find((s) => s.status === "bildirimli")!.serial,
-  fake: "AX-2609-99999",
+  fake: "AX-2609-15-99999",
 };
 
 export const findSerial = (serial: string) =>

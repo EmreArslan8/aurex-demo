@@ -14,7 +14,7 @@ const TRUST = [
   { icon: Truck, label: "Sigortalı, isimsiz paket" },
   { icon: QrCode, label: "QR kodlu sertifika" },
   { icon: BadgeCheck, label: "999.9 saflık garantisi" },
-  { icon: CreditCard, label: "Kredi kartına taksit" },
+  { icon: CreditCard, label: "Anında geri alım garantisi" },
 ];
 
 const STEPS = [
